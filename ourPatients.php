@@ -1,8 +1,7 @@
 <?php
 session_start();
 include 'functions.php';
-
-
+checkLogin();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -36,15 +35,16 @@ include 'functions.php';
 <body id="public">
 
 	<?php 
-		
-		
-		
 		include 'menu.php';
 	?>
 
 	<div id="container" style="min-height: 500px;">    
 		
-
+		<?php
+						
+			include "DBconfig.php";
+			
+		?>
 	</div>
 
 
