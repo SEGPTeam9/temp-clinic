@@ -1,0 +1,42 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	outline: none;
+}
+body {
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	line-height: 22px;
+	text-align: center;
+	padding: 20px 0px;
+}
+#wr {
+	width:800px;
+	margin: 0px auto;
+	text-align: left;
+}
+.trigger,.trigger a {
+	display: block;
+	width: 104px;
+	height: 26px;
+	text-indent: -999999em;
+	overflow: hidden;
+}
+.trigger {
+	background: url(../images/btn.png) no-repeat 0px 0px;
+}
+.close {
+	background: url(../images/btn.png) no-repeat 0px -26px;
+}
+.cnt {
+	display: none;
+	padding: 10px;
+	margin: 10px;
+	background: #f9f9f9;
+}
+.cl {
+	width: 100%;
+	clear: both;
+	line-height: 0px;
+	font-size: 0px;
+}

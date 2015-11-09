@@ -1,0 +1,122 @@
+ #loginForm {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:10%;
+	width: 300px;
+	height: 300px;
+	background-color: #e67e22;	
+	border-radius: 20px;
+	padding: 50px 40px 20px 40px;
+	border-right: solid orange 5px;
+	border-top: #e67e22 5px;
+	transition: .3s;
+ }
+ 
+  #loginForm:hover {
+	 background-color: #E6E6E6;
+	 transition: .3s;
+  }
+ 
+ #logoPlaceholder {
+	 width: 200px;
+	 height: 100px;
+	 background-color: gray;
+	
+	 margin-left: auto;
+	 margin-right: auto;
+	 margin-bottom: 20px;
+	 
+	 color: white;
+	 text-align: center;
+	 font-size: 30px;
+ } 
+ 
+ #loginForm form {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+ }
+ 
+ * {
+     margin: 0;
+     padding: 0;
+ }
+            
+.btn {
+	display: inline-block;
+	text-decoration: none;
+    font-family: Open Sans, sans-serif;
+    background-color: #09f;
+    color: #fff;
+    padding: 5px 20px;
+}
+            
+.slide-down-page {
+                position: absolute;
+                width: 100%;
+                box-sizing: content-box;
+                background-color: #666;
+                text-align: right;
+            }
+            
+.content {
+                height: 1800px;
+                padding-top: 200px;
+                background-color: #e0e0e0;
+                text-align: ;
+            }
+            
+#nurseForm {
+				margin-left: auto;
+				margin-right: auto;
+				margin-top:2%;
+				width: 59px;
+				height: 50px;
+				background-color: #09f;	
+				border-radius: 20px;
+				padding: 50px 40px 20px 40px;
+				border-right: solid white 5px;
+				border-top: white 5px;
+				transition: .3s;
+			 }
+			 
+#nurseForm:hover {
+				 background-color: #E6E6E6;
+				 transition: .3s;
+			  }
+			  
+.menu-btn {
+                display: block;
+                width: 48px;
+                height: 36px;
+                margin: 2%;
+
+            }
+            
+.menu-btn-block {
+                width: 100%;
+                height: 6px;
+                background-color: #09f;
+                border-radius: 3px;
+                transform-origin: 0 50%;
+                transition: transform 0.3s ease;
+            }
+            
+.menu-btn-block.middle {
+                margin: 9px 0;
+            }
+            
+.menu-btn-block.top.active {
+                transform: rotate(38.682deg);
+				.precell visibility: visible;
+            }
+            .menu-btn-block.middle.active {
+                transform: scale(0);
+            }
+            .menu-btn-block.bottom.active {
+                transform: rotate(-38.682deg);
+            }
+
+.current_page_item {
+	background-color: red;
+}
