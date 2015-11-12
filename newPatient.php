@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'functions.php';
-checkLogin();
+//checkLogin();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -30,6 +30,7 @@ checkLogin();
 	<link rel="stylesheet" href="css/form.css" />
 	<link rel="stylesheet" href="css/theme.css" type="text/css" />
 	<link rel="canonical" href="http://www.wufoo.com/gallery/designs/template.html">
+	
 </head>
 
 <body id="public">

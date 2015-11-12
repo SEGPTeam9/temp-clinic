@@ -1,7 +1,17 @@
 <?php
 session_start();
+
+if( !isset($_GET['curMonth']) && !isset($_GET['curYear']))	{
+	$curDay = date('d');
+	$curMonth = date('m');
+	$curYear = date('Y');
+}	else {
+	$curMonth = $_GET['curMonth'];
+	$curYear = $_GET['curYear'];
+}
 include 'functions.php';
-loggedIn();
+$curMonthWord = monthToWord( $curMonth );
+//loggedIn();
 //checkLogin();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -31,6 +41,10 @@ loggedIn();
 	<link rel="stylesheet" href="css/form.css" />
 	<link rel="stylesheet" href="css/theme.css" type="text/css" />
 	<link rel="canonical" href="http://www.wufoo.com/gallery/designs/template.html">
+	
+	<!-- Calendar CSS -->
+	<link rel="stylesheet" href="css/calendar.css" />
+	
 </head>
 
 <body id="public">
@@ -43,11 +57,13 @@ loggedIn();
 	?>
 
 	<div id="container" style="min-height: 500px;">    
+	<?php
 		
-
+		echo '<div><h2 id="calendarTitle">' . $curMonthWord . ' ' . $curYear .'</h2> <div id="changeMonthButtons"><a href="home.php?curMonth=' .  prevMonth($curMonth) . '&curYear=' . prevYear($curMonth, $curYear) . '">earlier</a><a href="home.php?curMonth=' .  nextMonth($curMonth) . '&curYear=' . nextYear($curMonth, $curYear) . '">later</a></div></div>';
+		echo draw_calendar(7,2009);
+	?>
 	</div>
-
-
+	
 </body>
 
 </html>
