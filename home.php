@@ -60,7 +60,7 @@ $curMonthWord = monthToWord( $curMonth );
 	<?php
 		
 		echo '<div><h2 id="calendarTitle">' . $curMonthWord . ' ' . $curYear .'</h2> <div id="changeMonthButtons"><a href="home.php?curMonth=' .  prevMonth($curMonth) . '&curYear=' . prevYear($curMonth, $curYear) . '">earlier</a><a href="home.php?curMonth=' .  nextMonth($curMonth) . '&curYear=' . nextYear($curMonth, $curYear) . '">later</a></div></div>';
-		echo draw_calendar(7,2009);
+		echo draw_calendar($curMonth, $curYear);
 	?>
 	</div>
 	
