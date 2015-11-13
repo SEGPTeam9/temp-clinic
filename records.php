@@ -79,6 +79,18 @@ include 'functions.php';
 			}
 			else
 				die("Error establishing date");
+		
+		
+		echo '<form method="POST" action="addRecord.php?day=' . $currentDay . '&month=' . $currentMonth . '&year=' . $currentYear . '">
+			<input type="text" name="first_name" placeholder="First Name"></input> <br />
+			<input type="text" name="last_name" placeholder="Last Name"></input> <br />
+			<input type="text" name="phone" placeholder="Phone"></input> <br />
+			<input type="text" name="address" placeholder="Address"></input> <br />
+			<input type="text" name="medic" placeholder="Medic"></input> <br />
+			<input type="text" name="reason" placeholder="Reason"></input> <br />
+			<input type="text" name="notes" placeholder="Notes"></input> <br />
+			<input type="submit" value="Add Record0"></input>
+		</form>';
 		?>
 	</div>
 
