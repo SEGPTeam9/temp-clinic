@@ -25,6 +25,9 @@ checkLogin();
 
 	<!-- JavaScript -->
 	<script type="text/javascript" src="scripts/scr.js"></script>
+	
+	<!-- JQuery -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="css/structure.css" />
@@ -84,7 +87,27 @@ checkLogin();
 				echo '<p /> <hr />';
 			}
 			
-			
+			//Add patient form
+			if( $_SESSION['position'] == 'medic' )	{
+				echo '<button id="addButton" onclick="showPatientForm()">Register new patient</button>';
+				echo '<div id="patientForm" style="display: none;"> 
+					<form method="POST" action="addPatient.php">
+					<input type="text" name="first_name" placeholder="First Name" style="width: 300px;"></input> <br /><br />
+					<input type="text" name="last_name" placeholder="Last Name" style="width: 300px;"></input> <br /><br />
+					<input type="text" name="dob" placeholder="Date Of Birth" style="width: 300px;"></input> <br /><br />
+					<input type="text" name="telephone" placeholder="Telephone" style="width: 300px;"></input> <br /><br />
+					<textarea type="text" name="address" placeholder="Address" style="width: 300px; height: 100px;"></textarea> <br /><br />
+					<textarea type="text" name="notes" placeholder="Notes" style="width: 300px; height: 200px;"></textarea> <br /><br />
+					<input type="submit" value="Add to records"></input>
+					</form> 
+					</div>';
+				echo '<script>
+						function showPatientForm() {
+							$(\'#addButton\').hide();
+							$(\'#patientForm\').show();
+						}
+					</script>';
+			}
 		?>
 	</div>
 
