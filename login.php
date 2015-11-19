@@ -1,11 +1,6 @@
 <?php
 session_start();
 
-if(isset($_POST['username']) && isset($_POST['password']))	{
-	echo 'POST USERNAME: ' .  $_POST['username'] . '<br />';
-	echo 'POST PASSWORD: ' .  $_POST['password'] . '<br />';
-}
-
 include "DBconfig.php";
 
 if( isset($_POST['username']) && isset($_POST['password']) )	{
