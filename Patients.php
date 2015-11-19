@@ -79,7 +79,8 @@ checkLogin();
 				echo 'Assigned Medic: ' . $row['Medic'] . ' <br />';
 				echo 'Telephone no.: ' . $row['Telephone'] . ' <br />';
 				echo 'Address: ' . $row['Address'] . ' <br />';
-				echo 'Notes: ' . $row['Notes'] . ' <br />';
+				echo 'Notes: ' . $row['Notes'];
+				echo '<a style="float: right;" href="removePatient.php?id=' . $row['id'] . '">Remove patient</a> <br />';
 				echo '<p /> <hr />';
 			}
 			
