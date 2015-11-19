@@ -44,7 +44,7 @@ checkLogin();
 		<?php
 						
 			include "DBconfig.php";
-			
+			echo '<i>Logged in as:</i> <b>' . $_SESSION['username'] . '</b> <br /> <i>Position:</i> <b>' . $_SESSION['position'] . '</b>';
 		?>
 	</div>
 

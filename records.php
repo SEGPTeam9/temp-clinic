@@ -24,6 +24,9 @@ checkLogin();
 
 	<!-- JavaScript -->
 	<script type="text/javascript" src="scripts/scr.js"></script>
+	
+	<!-- JQuery-->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="css/structure.css" />
@@ -83,16 +86,25 @@ checkLogin();
 				die("Error establishing date");
 		
 		
-		echo '<form method="POST" action="addRecord.php?day=' . $currentDay . '&month=' . $currentMonth . '&year=' . $currentYear . '">
-			<input type="text" name="first_name" placeholder="First Name"></input> <br />
-			<input type="text" name="last_name" placeholder="Last Name"></input> <br />
-			<input type="text" name="phone" placeholder="Phone"></input> <br />
-			<input type="text" name="address" placeholder="Address"></input> <br />
-			<input type="text" name="medic" placeholder="Medic"></input> <br />
-			<input type="text" name="reason" placeholder="Reason"></input> <br />
-			<input type="text" name="notes" placeholder="Notes"></input> <br />
-			<input type="submit" value="Add Record0"></input>
-		</form>';
+		echo '<button id="addButton" onclick="showForm()">Add new entry</button>';
+		echo '<div id="recordForm" style="display: none;"> 
+			<form method="POST" action="addRecord.php?day=' . $currentDay . '&month=' . $currentMonth . '&year=' . $currentYear . '">
+			<input type="text" name="first_name" placeholder="First Name" style="width: 300px;"></input> <br /><br />
+			<input type="text" name="last_name" placeholder="Last Name" style="width: 300px;"></input> <br /><br />
+			<input type="text" name="phone" placeholder="Phone" style="width: 300px;"></input> <br /><br />
+			<input type="text" name="address" placeholder="Address" style="width: 300px;"></input> <br /><br />
+			<input type="text" name="medic" placeholder="Medic" style="width: 300px;"></input> <br /><br />
+			<input type="text" name="reason" placeholder="Reason" style="width: 300px;"></input> <br /><br />
+			<textarea type="text" name="notes" placeholder="Notes" style="width: 300px; height: 200px;"></textarea> <br /><br />
+			<input type="submit" value="Add Record"></input>
+			</form> 
+			</div>';
+		echo '<script>
+				function showForm() {
+					$(\'#addButton\').hide();
+					$(\'#recordForm\').show();
+				}
+			</script>';
 		?>
 	</div>
 
