@@ -62,7 +62,13 @@ checkLogin();
 						exit();
 				}
 				
-				$query = "SELECT * FROM `patient_records` WHERE day='" . $currentDay . "' AND month='" . $currentMonth . "' AND year='" . $currentYear . "';";
+				if( $_SESSION['position'] == 'medic')	{
+					$query = "SELECT * FROM `appointments` WHERE day='" . $currentDay . "' AND month='" . $currentMonth . "' AND year='" . $currentYear . "' AND medic='" . $_SESSION['name'] . "';";
+				}
+				else	{
+					$query = "SELECT * FROM `appointments` WHERE day='" . $currentDay . "' AND month='" . $currentMonth . "' AND year='" . $currentYear . "';";
+				}
+				
 				if ($result = $mysqli->query($query)) {
 
 					/* fetch associative array */
@@ -78,33 +84,45 @@ checkLogin();
 				}
 				
 
-				/* free result set */
-				$result->free();
-				$mysqli->close();
+				
 			}
 			else
 				die("Error establishing date");
 		
-		
+		//Add appointment form
 		echo '<button id="addButton" onclick="showForm()">Add new entry</button>';
-		echo '<div id="recordForm" style="display: none;"> 
-			<form method="POST" action="addRecord.php?day=' . $currentDay . '&month=' . $currentMonth . '&year=' . $currentYear . '">
+		echo '<div id="appointmentForm" style="display: none;"> 
+			<form method="POST" action="addAppointment.php?day=' . $currentDay . '&month=' . $currentMonth . '&year=' . $currentYear . '">
 			<input type="text" name="first_name" placeholder="First Name" style="width: 300px;"></input> <br /><br />
 			<input type="text" name="last_name" placeholder="Last Name" style="width: 300px;"></input> <br /><br />
 			<input type="text" name="phone" placeholder="Phone" style="width: 300px;"></input> <br /><br />
 			<input type="text" name="address" placeholder="Address" style="width: 300px;"></input> <br /><br />
-			<input type="text" name="medic" placeholder="Medic" style="width: 300px;"></input> <br /><br />
+			<select name="medic" placeholder="Medic" style="width: 300px;">
+				<option>Select Medic</option>';
+				
+				$medicQuery = "SELECT name FROM logindb WHERE position='medic'";
+				$medicResult = $mysqli->query( $medicQuery );
+				while( $row = $medicResult->fetch_assoc() )	{
+					echo '<option value="' . $row['name'] . '">' . $row['name'] . '</option>';
+				}
+				
+		echo'</select> <br /><br />
 			<input type="text" name="reason" placeholder="Reason" style="width: 300px;"></input> <br /><br />
 			<textarea type="text" name="notes" placeholder="Notes" style="width: 300px; height: 200px;"></textarea> <br /><br />
-			<input type="submit" value="Add Record"></input>
+			<input type="submit" value="Make appointment"></input>
 			</form> 
 			</div>';
 		echo '<script>
 				function showForm() {
 					$(\'#addButton\').hide();
-					$(\'#recordForm\').show();
+					$(\'#appointmentForm\').show();
 				}
 			</script>';
+			
+		/* free result set */
+				$result->free();
+				$medicResult->free();
+				$mysqli->close();
 		?>
 	</div>
 

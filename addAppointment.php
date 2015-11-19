@@ -18,10 +18,10 @@ include "DBconfig.php";
 						exit();
 				}
 				
-				$query = "INSERT INTO patient_records VALUES('', '" . $_POST['first_name'] . "', '" . $_POST['last_name'] . "', '" . $currentDay . "', '" . $currentMonth ."', '" . $currentYear . "', '" . $_POST['phone'] . "', '" . $_POST['address'] . "', '" . $_POST['medic'] . "', '" . $_POST['reason'] . "', '" . $_POST['notes'] . "') ";
+				$query = "INSERT INTO appointments VALUES('', '" . $_POST['first_name'] . "', '" . $_POST['last_name'] . "', '" . $currentDay . "', '" . $currentMonth ."', '" . $currentYear . "', '" . $_POST['phone'] . "', '" . $_POST['address'] . "', '" . $_POST['medic'] . "', '" . $_POST['reason'] . "', '" . $_POST['notes'] . "') ";
 				if ($result = $mysqli->query($query)) {
 						echo 'Success !';
-						header('Location: ' . 'records.php?day=' . $currentDay . '&month=' . $currentMonth . '&year=' . $currentYear);
+						header('Location: ' . 'appointments.php?day=' . $currentDay . '&month=' . $currentMonth . '&year=' . $currentYear);
 					}
 				else {
 					echo 'Not inserted.';

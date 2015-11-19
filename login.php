@@ -17,7 +17,7 @@ if( isset($_POST['username']) && isset($_POST['password']) )	{
 		exit();
 	}
 
-    $query = "SELECT username, password, position FROM logindb WHERE username='" . $_POST['username'] . "'";
+    $query = "SELECT username, password, name, position FROM logindb WHERE username='" . $_POST['username'] . "'";
 	
 	if ($result = $mysqli->query($query)) {
 		/* fetch associative array */
@@ -26,6 +26,7 @@ if( isset($_POST['username']) && isset($_POST['password']) )	{
 				
 				$_SESSION['username'] = $_POST['username'];
 				$_SESSION['password'] = $_POST['password'];
+				$_SESSION['name'] = $row['name'];
 				$_SESSION['position'] = $row['position'];
 				header('Location: home.php');
 				

@@ -2,7 +2,9 @@
 session_start();
 include 'functions.php';
 checkLogin();
-
+if( $_SESSION['position'] != 'admin')	{
+	header('Locaton: index.php');
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -46,15 +48,10 @@ checkLogin();
 			include "DBconfig.php";
 			echo '<i>Logged in as:</i> <b>' . $_SESSION['username'] . '</b> <br /> <i>Position:</i> <b>' . $_SESSION['position'] . '</b>';
 		
-			if( $_SESSION['position'] == 'admin' )	{
-				$query = "SELECT * FROM patients";
-			}	
-			else if( $_SESSION['position'] == 'medic' )	{
-				$query = "SELECT * FROM patients WHERE medic='" . $_SESSION['name'] . "'";
-			}	
-			else if( $_SESSION['position'] == 'nurse' )	{
-				header('Location: index.php');
-			}
+			
+			$query = "SELECT * FROM logindb";
+			
+			
 			
 			//Connect to DB
 			$mysqli = new mysqli($host, $user, $password, $db) or die ("Couldn't connect to the database");
@@ -73,13 +70,9 @@ checkLogin();
 			
 			while( $row = $result->fetch_assoc() )	{
 				echo '<p>';
-				echo 'First Name: ' . $row['First name'] . ' <br />';
-				echo 'Last Name: ' . $row['Last name'] . ' <br />';
-				echo 'Date Of Birth: ' . $row['DOB'] . ' <br />';
-				echo 'Assigned Medic: ' . $row['Medic'] . ' <br />';
-				echo 'Telephone no.: ' . $row['Telephone'] . ' <br />';
-				echo 'Address: ' . $row['Address'] . ' <br />';
-				echo 'Notes: ' . $row['Notes'] . ' <br />';
+				echo 'Username: ' . $row['username'] . ' <br />';
+				echo 'Name: ' . $row['name'] . ' <br />';
+				echo 'Position: ' . $row['position'] . ' <br />';
 				echo '<p /> <hr />';
 			}
 			

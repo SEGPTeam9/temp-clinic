@@ -2,5 +2,5 @@
 	$host = 'localhost';
 	$user = 'root';
 	$password = '';
-	$db = 'SEGP_temp-clinic';
+	$db = 'segp_temp-clinic';
 ?>

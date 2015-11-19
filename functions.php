@@ -148,7 +148,7 @@
 
 		/* keep going with days.... */
 		for($list_day = 1; $list_day <= $days_in_month; $list_day++):
-			$calendar.= '<td class="calendar-day"><a href="records.php?day=' . $list_day . '&month=' . $GLOBALS['curMonth'] . '&year=' . $GLOBALS['curYear'] . '">';
+			$calendar.= '<td class="calendar-day"><a href="appointments.php?day=' . $list_day . '&month=' . $GLOBALS['curMonth'] . '&year=' . $GLOBALS['curYear'] . '">';
 				/* add in the day number */
 				$calendar.= '<div class="day-number">'.$list_day.'</div>';
 
