@@ -1,7 +1,7 @@
 <?php
 	function checkLogin(){
 		include 'DBconfig.php';
-		if(isset($_SESSION['username']) && isset($_SESSION['password']))	{
+		if( isset($_SESSION['username']) == 1 )	{
 			$mysqli = new mysqli($host, $user, $password, $db) or die ("Couldn't connect to the database");
 	
 			/* check connection */
@@ -26,13 +26,15 @@
 				$result->free();
 				$mysqli->close();
 			}
-			else
+			else	{
 				echo '<script> alert("Please log in1."); </script>';
-				header('Location: index.php');
+				header('Location: index.php?notLoggedIn=1');
+			}
 		}
-		else
+		else	{
 			echo '<script> alert("Please log in. Session doesn\'t exist"); </script>';
-			header('Location: index2.php');
+			header('Location: index.php?notLoggedIn=1');
+		}
 	}
 	
 	function loggedIn(){
@@ -43,6 +45,14 @@
 		else {
 			echo '<script> alert("Not logged in"); </script>';
 		}
+	}
+	
+	function logData() {
+		if( isset($_SESSION['username']) && isset($_SESSION['password']) && isset($_SESSION['position']) )	{
+			echo 'Username: ' . $_SESSION['username'] . '/ Password: ' . $_SESSION['password'] . '/ Position: ' . $_SESSION['position'];
+		}
+		else
+			echo 'No data to display';
 	}
 	
 	function monthToWord( $month ) {
@@ -138,7 +148,7 @@
 
 		/* keep going with days.... */
 		for($list_day = 1; $list_day <= $days_in_month; $list_day++):
-			$calendar.= '<td class="calendar-day"><a href="records.php?day=' . $list_day . '&month=' . $GLOBALS['curMonth'] . '&year=' . $GLOBALS['curYear'] . '" target="_blank">';
+			$calendar.= '<td class="calendar-day"><a href="records.php?day=' . $list_day . '&month=' . $GLOBALS['curMonth'] . '&year=' . $GLOBALS['curYear'] . '">';
 				/* add in the day number */
 				$calendar.= '<div class="day-number">'.$list_day.'</div>';
 

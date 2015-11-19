@@ -10,6 +10,11 @@
 </head>
 
 <body>
+	<?php
+		if( isset($_GET['notLoggedIn']) )	{
+			echo '<a style="color: red;"><b>Login data is incorect!</b></a>';
+		}
+	?>
 	<div id="loginForm">
 	<div id="logoPlaceholder"> LOGO </div>
 	<form method="POST" action="login.php">		<!- Insert page to be redirected to in 'action' attribute ->

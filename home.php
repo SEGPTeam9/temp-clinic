@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 if( !isset($_GET['curMonth']) && !isset($_GET['curYear']))	{
 	$curDay = date('d');
 	$curMonth = date('m');
@@ -10,6 +11,8 @@ if( !isset($_GET['curMonth']) && !isset($_GET['curYear']))	{
 	$curYear = $_GET['curYear'];
 }
 include 'functions.php';
+checkLogin();
+
 $curMonthWord = monthToWord( $curMonth );
 //loggedIn();
 //checkLogin();

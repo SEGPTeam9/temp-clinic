@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'functions.php';
-//checkLogin();
+checkLogin();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -47,6 +47,8 @@ include 'functions.php';
 			$currentMonth = $_GET['month'];
 			$currentYear = $_GET['year'];
 			$currentMonthWord = monthToWord( $currentMonth );
+			
+			echo '<a href="home.php?curMonth=' . $currentMonth . '&curYear=' . $currentYear . '"> BACK<br /><br /> </a>';
 			
 			if( isset($currentDay) && isset($currentMonth) && isset($currentYear) )	{
 				$mysqli = new mysqli($host, $user, $password, $db) or die ("Couldn't connect to the database");
