@@ -20,7 +20,6 @@ include "DBconfig.php";
 				
 				$query = "INSERT INTO appointments VALUES('', '" . $_POST['first_name'] . "', '" . $_POST['last_name'] . "', '" . $currentDay . "', '" . $currentMonth ."', '" . $currentYear . "', '" . $_POST['phone'] . "', '" . $_POST['address'] . "', '" . $_POST['medic'] . "', '" . $_POST['reason'] . "', '" . $_POST['notes'] . "') ";
 				if ($result = $mysqli->query($query)) {
-						echo 'Success !';
 						header('Location: ' . 'appointments.php?day=' . $currentDay . '&month=' . $currentMonth . '&year=' . $currentYear);
 					}
 				else {
