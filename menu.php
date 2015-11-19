@@ -5,7 +5,7 @@
 			<li class="current_page_item"><a href="home.php" accesskey="1" title="">Appointments</a></li>
 			<?php
 				if( isset($_SESSION['position']) && ( $_SESSION['position'] == 'medic' || $_SESSION['position'] == 'admin' ) )	{
-					echo '<li class="current_page_item"><a href="Patients.php"  title="">Our Patients</a></li>';
+					echo '<li class="current_page_item"><a href="patients.php"  title="">Our Patients</a></li>';
 				}
 				
 				if( isset($_SESSION['position']) && $_SESSION['position'] == 'admin' )	{
